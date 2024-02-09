@@ -1,0 +1,182 @@
+INFO:__main__:base_lr:                         5e-05
+INFO:__main__:base_weight_decay:               0.0
+INFO:__main__:batch_size:                      16
+INFO:__main__:bias:                            none
+INFO:__main__:bits:                            16
+INFO:__main__:checkpoint_dir:                  None
+INFO:__main__:data_root:                       /userhome/dataset/Recformer/finetune_data
+INFO:__main__:dataset:                         Games
+INFO:__main__:deepspeed:                       None
+INFO:__main__:fix_backbone:                    False
+INFO:__main__:fix_emb:                         False
+INFO:__main__:gradient_accumulation_steps:     4
+INFO:__main__:gradient_checkpointing_enable:   True
+INFO:__main__:index_alignment:                 True
+INFO:__main__:interval:                        1
+INFO:__main__:linear_lr:                       5e-05
+INFO:__main__:linear_weight_decay:             0
+INFO:__main__:log_file:                        ./log/Games/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia/train.log
+INFO:__main__:lora_alpha:                      16
+INFO:__main__:lora_dropout:                    0.05
+INFO:__main__:lora_r:                          64
+INFO:__main__:max_attr_length:                 32
+INFO:__main__:max_item_num:                    50
+INFO:__main__:max_token_num:                   1024
+INFO:__main__:metric_ks:                       [10]
+INFO:__main__:mixed_precision:                 fp16
+INFO:__main__:model_cache_dir:                 /userhome/cache_models
+INFO:__main__:model_name_or_path:              facebook/opt-125m
+INFO:__main__:not_debug:                       True
+INFO:__main__:num_train_epochs:                30
+INFO:__main__:num_workers:                     1
+INFO:__main__:only_test:                       False
+INFO:__main__:output_dir:                      ./log
+INFO:__main__:output_path:                     ./log/Games/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia
+INFO:__main__:pad_right:                       False
+INFO:__main__:patient:                         5
+INFO:__main__:pretrain_datasets:               ['Automotive', 'Cell_Phones_and_Accessories', 'Clothing_Shoes_and_Jewelry', 'Electronics', 'Grocery_and_Gourmet_Food', 'Home_and_Kitchen', 'Movies_and_TV']
+INFO:__main__:query_same:                      False
+INFO:__main__:query_token_mode:                1
+INFO:__main__:query_token_num:                 0
+INFO:__main__:seed:                            42
+INFO:__main__:skip_valid:                      0
+INFO:__main__:suffix:                          gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia
+INFO:__main__:target_modules:                  None
+INFO:__main__:train_attr:                      ['title']
+INFO:__main__:use_lora:                        False
+INFO:__main__:valid_metric:                    NDCG@10
+INFO:__main__:warmup_steps:                    100
+INFO:__main__:bos_token: </s>; 2
+INFO:__main__:eos_token: </s>; 2
+INFO:__main__:unk_token: </s>; 2
+INFO:__main__:pad_token: <pad>; 1
+INFO:__main__:OPTRecModel(
+  (decoder): OPTDecoder(
+    (embed_tokens): Embedding(50265, 768)
+    (embed_positions): OPTLearnedPositionalEmbedding(2050, 768)
+    (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0-11): 12 x OPTDecoderLayer(
+        (self_attn): OPTAttention(
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_fn): ReLU()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (score): Linear(in_features=768, out_features=17389, bias=False)
+)
+INFO:__main__:[2024-01-08 15:25:05]: trainable params: 138588672 || all params: 138588672 || trainable: 100.0
+INFO:__main__:[Mode: train], user num: 55133
+INFO:__main__:[Mode: valid], user num: 55222
+INFO:__main__:[Mode: test], user num: 55222
+INFO:__main__:[Train Data]
+INFO:__main__:[Sequence]: 
+Silent Hill HD Collection - Xbox 360.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, 10751]
+INFO:__main__:[Valid Data]
+INFO:__main__:[Sequence]: 
+PDP Universal DS Rainbow Stylus Pack.Twisted Metal - PS3 [Digital Code].Mario &amp; Luigi: Partners In Time.Logitech Dual Action Game Pad USB.Diablo III.Diablo III.Anno 2070.Wii.Super Mario Galaxy.Age Of Mythology:  Titans - PC. Generic New Wired Infrared Sensor Bar for Nintendo Wii Controller.MySims Kingdom - Nintendo Wii.MySims Agents - Nintendo Wii.Demon's Souls.Fallout 3: Game of The Year Edition (PC).Generic B002GEKIOG1 Wii Nunchuk/Nunchuck Controller.DTOL Controller Adapter for Nintendo Wii Nunchuk Black.Sonic Generations - PlayStation 3.Pokemon X.Sonic Generations - Nintendo 3DS.Silent Hill HD Collection - Xbox 360.16GB PlayStation Vita Memory Card.Pok&eacute;mon Mystery Dungeon: Gates to Infinity - 3DS.Mario and Luigi: Dream Team.Hexen.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, 13619, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 4210, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2904, -100, -100, -100, -100, -100, -100, -100, 6896, -100, -100, -100, 6896, -100, -100, -100, 0, -100, -100, -100, -100, 3963, -100, -100, 4636, -100, -100, -100, 5534, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6989, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 7045, -100, -100, -100, -100, -100, -100, -100, 8231, -100, -100, -100, -100, -100, -100, -100, 8309, -100, -100, -100, 8469, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 8632, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9281, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9842, -100, -100, -100, -100, -100, -100, 10102, -100, -100, 10358, -100, -100, -100, -100, -100, -100, -100, 10359, -100, -100, -100, -100, -100, -100, -100, -100, 10751, -100, -100, -100, -100, -100, -100, 11601, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 11941, -100, -100, -100, -100, -100, -100, 121, -100, -100, -100, 7053]
+INFO:__main__:[Test Data]
+INFO:__main__:[Sequence]: 
+PDP Universal DS Rainbow Stylus Pack.Twisted Metal - PS3 [Digital Code].Mario &amp; Luigi: Partners In Time.Logitech Dual Action Game Pad USB.Diablo III.Diablo III.Anno 2070.Wii.Super Mario Galaxy.Age Of Mythology:  Titans - PC. Generic New Wired Infrared Sensor Bar for Nintendo Wii Controller.MySims Kingdom - Nintendo Wii.MySims Agents - Nintendo Wii.Demon's Souls.Fallout 3: Game of The Year Edition (PC).Generic B002GEKIOG1 Wii Nunchuk/Nunchuck Controller.DTOL Controller Adapter for Nintendo Wii Nunchuk Black.Sonic Generations - PlayStation 3.Pokemon X.Sonic Generations - Nintendo 3DS.Silent Hill HD Collection - Xbox 360.16GB PlayStation Vita Memory Card.Pok&eacute;mon Mystery Dungeon: Gates to Infinity - 3DS.Mario and Luigi: Dream Team.Hexen. MySims Kingdom (Nintendo DS).
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, 13619, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 4210, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2904, -100, -100, -100, -100, -100, -100, -100, 6896, -100, -100, -100, 6896, -100, -100, -100, 0, -100, -100, -100, -100, 3963, -100, -100, 4636, -100, -100, -100, 5534, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6989, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 7045, -100, -100, -100, -100, -100, -100, -100, 8231, -100, -100, -100, -100, -100, -100, -100, 8309, -100, -100, -100, 8469, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 8632, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9281, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9842, -100, -100, -100, -100, -100, -100, 10102, -100, -100, 10358, -100, -100, -100, -100, -100, -100, -100, 10359, -100, -100, -100, -100, -100, -100, -100, -100, 10751, -100, -100, -100, -100, -100, -100, 11601, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 11941, -100, -100, -100, -100, -100, -100, 121, -100, -100, -100, 7053, -100, -100, -100, -100, -100, -100, -100, -100, 7732]
+INFO:__main__:[2024-01-08 15:30:00]: Epoch: 1, training loss: 9.12203
+INFO:__main__:[2024-01-08 15:31:24]: Epoch: 1. Dev set: {'NDCG@10': 0.03753145462115698, 'Recall@10': 0.060697685137201154, 'MRR': 0.03609756002000151, 'AUC': 0.8014204366734793}
+INFO:__main__:[2024-01-08 15:31:24]: Save the best model.
+INFO:__main__:[2024-01-08 15:36:12]: Epoch: 2, training loss: 8.35962
+INFO:__main__:[2024-01-08 15:37:36]: Epoch: 2. Dev set: {'NDCG@10': 0.05456854362819918, 'Recall@10': 0.08459687401321506, 'MRR': 0.052173102757465076, 'AUC': 0.8600705817842539}
+INFO:__main__:[2024-01-08 15:37:36]: Save the best model.
+INFO:__main__:[2024-01-08 15:42:24]: Epoch: 3, training loss: 7.91443
+INFO:__main__:[2024-01-08 15:43:47]: Epoch: 3. Dev set: {'NDCG@10': 0.06475120576191369, 'Recall@10': 0.09881787896501645, 'MRR': 0.06190470629378447, 'AUC': 0.8864942953456733}
+INFO:__main__:[2024-01-08 15:43:47]: Save the best model.
+INFO:__main__:[2024-01-08 15:48:36]: Epoch: 4, training loss: 7.62618
+INFO:__main__:[2024-01-08 15:50:00]: Epoch: 4. Dev set: {'NDCG@10': 0.07613807952415677, 'Recall@10': 0.11649867007346999, 'MRR': 0.07175782528222427, 'AUC': 0.8992784211491931}
+INFO:__main__:[2024-01-08 15:50:00]: Save the best model.
+INFO:__main__:[2024-01-08 15:54:50]: Epoch: 5, training loss: 7.34953
+INFO:__main__:[2024-01-08 15:56:14]: Epoch: 5. Dev set: {'NDCG@10': 0.08231215575776847, 'Recall@10': 0.1242362793668811, 'MRR': 0.0778080142617899, 'AUC': 0.9069203754772593}
+INFO:__main__:[2024-01-08 15:56:14]: Save the best model.
+INFO:__main__:[2024-01-08 16:01:06]: Epoch: 6, training loss: 7.14512
+INFO:__main__:[2024-01-08 16:02:30]: Epoch: 6. Dev set: {'NDCG@10': 0.0901359392212421, 'Recall@10': 0.13530693669411703, 'MRR': 0.08475103002847717, 'AUC': 0.9080835437857538}
+INFO:__main__:[2024-01-08 16:02:30]: Save the best model.
+INFO:__main__:[2024-01-08 16:07:15]: Epoch: 7, training loss: 6.91459
+INFO:__main__:[2024-01-08 16:08:37]: Epoch: 7. Dev set: {'NDCG@10': 0.09404836905319439, 'Recall@10': 0.14205203834718239, 'MRR': 0.08803086673143737, 'AUC': 0.9133655498989212}
+INFO:__main__:[2024-01-08 16:08:37]: Save the best model.
+INFO:__main__:[2024-01-08 16:13:15]: Epoch: 8, training loss: 6.70771
+INFO:__main__:[2024-01-08 16:14:37]: Epoch: 8. Dev set: {'NDCG@10': 0.09739231049414478, 'Recall@10': 0.14658662962575086, 'MRR': 0.09111744598032279, 'AUC': 0.9151986314896775}
+INFO:__main__:[2024-01-08 16:14:37]: Save the best model.
+INFO:__main__:[2024-01-08 16:19:17]: Epoch: 9, training loss: 6.50351
+INFO:__main__:[2024-01-08 16:20:40]: Epoch: 9. Dev set: {'NDCG@10': 0.10051842439630493, 'Recall@10': 0.14990980196247786, 'MRR': 0.09422963683095222, 'AUC': 0.9150453486834865}
+INFO:__main__:[2024-01-08 16:20:40]: Save the best model.
+INFO:__main__:[2024-01-08 16:25:23]: Epoch: 10, training loss: 6.31760
+INFO:__main__:[2024-01-08 16:26:46]: Epoch: 10. Dev set: {'NDCG@10': 0.10282251386669047, 'Recall@10': 0.15402632202361716, 'MRR': 0.09610385002178784, 'AUC': 0.9162541747714802}
+INFO:__main__:[2024-01-08 16:26:46]: Save the best model.
+INFO:__main__:[2024-01-08 16:31:30]: Epoch: 11, training loss: 6.15425
+INFO:__main__:[2024-01-08 16:32:53]: Epoch: 11. Dev set: {'NDCG@10': 0.10453574141155095, 'Recall@10': 0.1571305830674818, 'MRR': 0.09741490205824332, 'AUC': 0.917739018366207}
+INFO:__main__:[2024-01-08 16:32:53]: Save the best model.
+INFO:__main__:[2024-01-08 16:37:36]: Epoch: 12, training loss: 5.94093
+INFO:__main__:[2024-01-08 16:38:59]: Epoch: 12. Dev set: {'NDCG@10': 0.10530256192326148, 'Recall@10': 0.15745812704568665, 'MRR': 0.09837051895787013, 'AUC': 0.9172434232533323}
+INFO:__main__:[2024-01-08 16:38:59]: Save the best model.
+INFO:__main__:[2024-01-08 16:43:46]: Epoch: 13, training loss: 5.80962
+INFO:__main__:[2024-01-08 16:45:09]: Epoch: 13. Dev set: {'NDCG@10': 0.10701521108334891, 'Recall@10': 0.1607796534257029, 'MRR': 0.09950590213984122, 'AUC': 0.9166969396907789}
+INFO:__main__:[2024-01-08 16:45:09]: Save the best model.
+INFO:__main__:[2024-01-08 16:49:52]: Epoch: 14, training loss: 5.64385
+INFO:__main__:[2024-01-08 16:51:15]: Epoch: 14. Dev set: {'NDCG@10': 0.10702113763117345, 'Recall@10': 0.15978385388920233, 'MRR': 0.0997926999201301, 'AUC': 0.9163916690462849}
+INFO:__main__:[2024-01-08 16:51:15]: Save the best model.
+INFO:__main__:[2024-01-08 16:55:58]: Epoch: 15, training loss: 5.49294
+INFO:__main__:[2024-01-08 16:57:21]: Epoch: 15. Dev set: {'NDCG@10': 0.10805675616436061, 'Recall@10': 0.1606611450605293, 'MRR': 0.10092651060008609, 'AUC': 0.9156711208240182}
+INFO:__main__:[2024-01-08 16:57:21]: Save the best model.
+INFO:__main__:[2024-01-08 17:02:08]: Epoch: 16, training loss: 5.37893
+INFO:__main__:[2024-01-08 17:03:32]: Epoch: 16. Dev set: {'NDCG@10': 0.10865848989906879, 'Recall@10': 0.16198119667907993, 'MRR': 0.10127393706018582, 'AUC': 0.9163212963355098}
+INFO:__main__:[2024-01-08 17:03:32]: Save the best model.
+INFO:__main__:[2024-01-08 17:08:17]: Epoch: 17, training loss: 5.26758
+INFO:__main__:[2024-01-08 17:09:40]: Epoch: 17. Dev set: {'NDCG@10': 0.10886992462117523, 'Recall@10': 0.1616371932028343, 'MRR': 0.10158191537533089, 'AUC': 0.91492281852426}
+INFO:__main__:[2024-01-08 17:09:40]: Save the best model.
+INFO:__main__:[2024-01-08 17:14:26]: Epoch: 18, training loss: 5.14817
+INFO:__main__:[2024-01-08 17:15:49]: Epoch: 18. Dev set: {'NDCG@10': 0.10907207624306892, 'Recall@10': 0.16170961498730704, 'MRR': 0.10192700559683446, 'AUC': 0.9154042572922668}
+INFO:__main__:[2024-01-08 17:15:49]: Save the best model.
+INFO:__main__:[2024-01-08 17:20:32]: Epoch: 19, training loss: 5.05413
+INFO:__main__:[2024-01-08 17:21:54]: Epoch: 19. Dev set: {'NDCG@10': 0.10886155506693095, 'Recall@10': 0.16219846203249824, 'MRR': 0.10147899584056916, 'AUC': 0.914513900375311}
+INFO:__main__:[2024-01-08 17:26:37]: Epoch: 20, training loss: 4.96891
+INFO:__main__:[2024-01-08 17:28:00]: Epoch: 20. Dev set: {'NDCG@10': 0.10939727067517878, 'Recall@10': 0.16194498578684355, 'MRR': 0.10225863120710717, 'AUC': 0.9140412856502025}
+INFO:__main__:[2024-01-08 17:28:00]: Save the best model.
+INFO:__main__:[2024-01-08 17:32:40]: Epoch: 21, training loss: 4.90287
+INFO:__main__:[2024-01-08 17:34:02]: Epoch: 21. Dev set: {'NDCG@10': 0.1095827104440682, 'Recall@10': 0.16227088381697102, 'MRR': 0.10238086728450356, 'AUC': 0.9144777010862962}
+INFO:__main__:[2024-01-08 17:34:02]: Save the best model.
+INFO:__main__:[2024-01-08 17:38:50]: Epoch: 22, training loss: 4.84247
+INFO:__main__:[2024-01-08 17:40:13]: Epoch: 22. Dev set: {'NDCG@10': 0.1098133091181344, 'Recall@10': 0.16288646898498954, 'MRR': 0.10244689989421703, 'AUC': 0.9146183998186923}
+INFO:__main__:[2024-01-08 17:40:13]: Save the best model.
+INFO:__main__:[2024-01-08 17:45:03]: Epoch: 23, training loss: 4.80543
+INFO:__main__:[2024-01-08 17:46:27]: Epoch: 23. Dev set: {'NDCG@10': 0.10980897055893515, 'Recall@10': 0.16200917783092927, 'MRR': 0.10276624306562644, 'AUC': 0.9135222145953018}
+INFO:__main__:[2024-01-08 17:51:17]: Epoch: 24, training loss: 4.75837
+INFO:__main__:[2024-01-08 17:52:41]: Epoch: 24. Dev set: {'NDCG@10': 0.1099343028578903, 'Recall@10': 0.16267907933730238, 'MRR': 0.10268837608869683, 'AUC': 0.914333577020696}
+INFO:__main__:[2024-01-08 17:52:41]: Save the best model.
+INFO:__main__:[2024-01-08 17:57:30]: Epoch: 25, training loss: 4.71930
+INFO:__main__:[2024-01-08 17:58:53]: Epoch: 25. Dev set: {'NDCG@10': 0.10977347494671737, 'Recall@10': 0.16209970506152024, 'MRR': 0.10264837318332057, 'AUC': 0.9139081286665739}
+INFO:__main__:[2024-01-08 18:03:36]: Epoch: 26, training loss: 4.70156
+INFO:__main__:[2024-01-08 18:04:59]: Epoch: 26. Dev set: {'NDCG@10': 0.10991178789615269, 'Recall@10': 0.16237128675329313, 'MRR': 0.10273822240972824, 'AUC': 0.913889691976103}
+INFO:__main__:[2024-01-08 18:09:38]: Epoch: 27, training loss: 4.69533
+INFO:__main__:[2024-01-08 18:11:01]: Epoch: 27. Dev set: {'NDCG@10': 0.10974710854687669, 'Recall@10': 0.16206349416928384, 'MRR': 0.1026384559630493, 'AUC': 0.9137918736401466}
+INFO:__main__:[2024-01-08 18:15:44]: Epoch: 28, training loss: 4.68962
+INFO:__main__:[2024-01-08 18:17:07]: Epoch: 28. Dev set: {'NDCG@10': 0.1098895950371298, 'Recall@10': 0.16235318130717494, 'MRR': 0.10273816393335433, 'AUC': 0.9137965157576259}
+INFO:__main__:[2024-01-08 18:21:52]: Epoch: 29, training loss: 4.66277
+INFO:__main__:[2024-01-08 18:23:15]: Epoch: 29. Dev set: {'NDCG@10': 0.11000607830287752, 'Recall@10': 0.162642868445066, 'MRR': 0.10277612215401184, 'AUC': 0.9137337457470657}
+INFO:__main__:[2024-01-08 18:23:15]: Save the best model.
+INFO:__main__:[2024-01-08 18:28:04]: Epoch: 30, training loss: 4.65947
+INFO:__main__:[2024-01-08 18:29:28]: Epoch: 30. Dev set: {'NDCG@10': 0.11005975384057984, 'Recall@10': 0.16273339567565698, 'MRR': 0.10281063565716735, 'AUC': 0.91372949779379}
+INFO:__main__:[2024-01-08 18:29:28]: Save the best model.
+INFO:__main__:[2024-01-08 18:29:30]: Load best model: ./log/Games/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia/pytorch_model.bin
+INFO:__main__:[2024-01-08 18:30:57]: ==Test set==: {'NDCG@10': 0.09141041892650834, 'Recall@10': 0.13335977826237264, 'MRR': 0.08662735867982585, 'AUC': 0.8955190551930203}
+
+INFO:__main__:[2024-01-08 18:30:57]: Finish.

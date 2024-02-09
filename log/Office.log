@@ -1,0 +1,138 @@
+INFO:__main__:base_lr:                         5e-05
+INFO:__main__:base_weight_decay:               0.0
+INFO:__main__:batch_size:                      16
+INFO:__main__:bias:                            none
+INFO:__main__:bits:                            16
+INFO:__main__:checkpoint_dir:                  None
+INFO:__main__:data_root:                       /userhome/dataset/Recformer/finetune_data
+INFO:__main__:dataset:                         Office
+INFO:__main__:deepspeed:                       None
+INFO:__main__:fix_backbone:                    False
+INFO:__main__:gradient_accumulation_steps:     4
+INFO:__main__:gradient_checkpointing_enable:   True
+INFO:__main__:index_alignment:                 True
+INFO:__main__:interval:                        1
+INFO:__main__:linear_lr:                       5e-05
+INFO:__main__:linear_weight_decay:             0
+INFO:__main__:log_file:                        ./log/Office/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia/train.log
+INFO:__main__:lora_alpha:                      16
+INFO:__main__:lora_dropout:                    0.05
+INFO:__main__:lora_r:                          64
+INFO:__main__:max_attr_length:                 32
+INFO:__main__:max_item_num:                    50
+INFO:__main__:max_token_num:                   1024
+INFO:__main__:metric_ks:                       [10]
+INFO:__main__:mixed_precision:                 fp16
+INFO:__main__:model_cache_dir:                 /userhome/cache_models
+INFO:__main__:model_name_or_path:              facebook/opt-125m
+INFO:__main__:not_debug:                       True
+INFO:__main__:num_train_epochs:                30
+INFO:__main__:num_workers:                     1
+INFO:__main__:only_test:                       False
+INFO:__main__:output_dir:                      ./log
+INFO:__main__:output_path:                     ./log/Office/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia
+INFO:__main__:pad_right:                       False
+INFO:__main__:patient:                         5
+INFO:__main__:pretrain_datasets:               ['Automotive', 'Cell_Phones_and_Accessories', 'Clothing_Shoes_and_Jewelry', 'Electronics', 'Grocery_and_Gourmet_Food', 'Home_and_Kitchen', 'Movies_and_TV']
+INFO:__main__:query_same:                      False
+INFO:__main__:query_token_mode:                1
+INFO:__main__:query_token_num:                 0
+INFO:__main__:seed:                            42
+INFO:__main__:skip_valid:                      0
+INFO:__main__:suffix:                          gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia
+INFO:__main__:target_modules:                  None
+INFO:__main__:train_attr:                      ['title']
+INFO:__main__:use_lora:                        False
+INFO:__main__:valid_metric:                    NDCG@10
+INFO:__main__:warmup_steps:                    100
+INFO:__main__:bos_token: </s>; 2
+INFO:__main__:eos_token: </s>; 2
+INFO:__main__:unk_token: </s>; 2
+INFO:__main__:pad_token: <pad>; 1
+INFO:__main__:[2024-01-08 08:27:26]: trainable params: 146685696 || all params: 146685696 || trainable: 100.0
+INFO:__main__:OPTRecModel(
+  (decoder): OPTDecoder(
+    (embed_tokens): Embedding(50265, 768)
+    (embed_positions): OPTLearnedPositionalEmbedding(2050, 768)
+    (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0-11): 12 x OPTDecoderLayer(
+        (self_attn): OPTAttention(
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_fn): ReLU()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (score): Linear(in_features=768, out_features=27932, bias=False)
+)
+INFO:__main__:[2024-01-08 08:27:26]: trainable params: 146685696 || all params: 146685696 || trainable: 100.0
+INFO:__main__:[Mode: train], user num: 101362
+INFO:__main__:[Mode: valid], user num: 101494
+INFO:__main__:[Mode: test], user num: 101494
+INFO:__main__:[Train Data]
+INFO:__main__:[Sequence]: 
+Panasonic KX-TS880B Integrated Corded Telephone.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 3678]
+INFO:__main__:[Valid Data]
+INFO:__main__:[Sequence]: 
+Panasonic KX-TS880B Integrated Corded Telephone.Panasonic KX-TS620B Integrated Corded Phone with All-Digital Answering System, Black.AT&amp;T ML17929 2-Line Corded Telephone, Black.Pilot EasyTouch Ball Point Stick Pens, Fine Point, Black Ink, Dozen Box (32001).Scotch Desk Tape Dispenser, 1in. Core, Black.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 3678, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 13758, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 4364, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 1504, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 20868]
+INFO:__main__:[Test Data]
+INFO:__main__:[Sequence]: 
+Panasonic KX-TS880B Integrated Corded Telephone.Panasonic KX-TS620B Integrated Corded Phone with All-Digital Answering System, Black.AT&amp;T ML17929 2-Line Corded Telephone, Black.Pilot EasyTouch Ball Point Stick Pens, Fine Point, Black Ink, Dozen Box (32001).Scotch Desk Tape Dispenser, 1in. Core, Black.Swingline Mini Stapler, Tot, 12 Sheet Capacity, includes Built-In Staple Remover &amp; 1000 Standard Staples, Blue - S70.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 3678, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 13758, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 4364, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 1504, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 20868, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 0]
+INFO:__main__:[2024-01-08 08:38:06]: Epoch: 1, training loss: 9.14715
+INFO:__main__:[2024-01-08 08:43:11]: Epoch: 1. Dev set: {'NDCG@10': 0.10688899056122769, 'Recall@10': 0.12924613808322824, 'MRR': 0.10295539279239894, 'AUC': 0.787765148496267}
+INFO:__main__:[2024-01-08 08:43:11]: Save the best model.
+INFO:__main__:[2024-01-08 08:53:38]: Epoch: 2, training loss: 8.43130
+INFO:__main__:[2024-01-08 08:58:43]: Epoch: 2. Dev set: {'NDCG@10': 0.13024514156374917, 'Recall@10': 0.15563918663303908, 'MRR': 0.12587671112913631, 'AUC': 0.8146905363320102}
+INFO:__main__:[2024-01-08 08:58:43]: Save the best model.
+INFO:__main__:[2024-01-08 09:09:16]: Epoch: 3, training loss: 8.00750
+INFO:__main__:[2024-01-08 09:14:21]: Epoch: 3. Dev set: {'NDCG@10': 0.1415554675532559, 'Recall@10': 0.16996195403128525, 'MRR': 0.13630198274555325, 'AUC': 0.8275062833991358}
+INFO:__main__:[2024-01-08 09:14:21]: Save the best model.
+INFO:__main__:[2024-01-08 09:24:47]: Epoch: 4, training loss: 7.65184
+INFO:__main__:[2024-01-08 09:29:52]: Epoch: 4. Dev set: {'NDCG@10': 0.15017331838414008, 'Recall@10': 0.17953703571275384, 'MRR': 0.14485833304723172, 'AUC': 0.8354605559217374}
+INFO:__main__:[2024-01-08 09:29:52]: Save the best model.
+INFO:__main__:[2024-01-08 09:40:05]: Epoch: 5, training loss: 7.35664
+INFO:__main__:[2024-01-08 09:45:11]: Epoch: 5. Dev set: {'NDCG@10': 0.1548529642388638, 'Recall@10': 0.18483731944541462, 'MRR': 0.14941909501688294, 'AUC': 0.8399092785610076}
+INFO:__main__:[2024-01-08 09:45:11]: Save the best model.
+INFO:__main__:[2024-01-08 09:55:36]: Epoch: 6, training loss: 7.07892
+INFO:__main__:[2024-01-08 10:00:41]: Epoch: 6. Dev set: {'NDCG@10': 0.15890152437975313, 'Recall@10': 0.18961008253870215, 'MRR': 0.1533459701001997, 'AUC': 0.8447264846870006}
+INFO:__main__:[2024-01-08 10:00:41]: Save the best model.
+INFO:__main__:[2024-01-08 10:11:04]: Epoch: 7, training loss: 6.83821
+INFO:__main__:[2024-01-08 10:16:10]: Epoch: 7. Dev set: {'NDCG@10': 0.16183173623109826, 'Recall@10': 0.19378188410292357, 'MRR': 0.15588101672193166, 'AUC': 0.8457631600496899}
+INFO:__main__:[2024-01-08 10:16:10]: Save the best model.
+INFO:__main__:[2024-01-08 10:26:25]: Epoch: 8, training loss: 6.57978
+INFO:__main__:[2024-01-08 10:31:31]: Epoch: 8. Dev set: {'NDCG@10': 0.16408562151806766, 'Recall@10': 0.1965798033967445, 'MRR': 0.15800060861969917, 'AUC': 0.846134246917721}
+INFO:__main__:[2024-01-08 10:31:31]: Save the best model.
+INFO:__main__:[2024-01-08 10:41:42]: Epoch: 9, training loss: 6.32952
+INFO:__main__:[2024-01-08 10:46:48]: Epoch: 9. Dev set: {'NDCG@10': 0.16483322597369504, 'Recall@10': 0.19760439356067894, 'MRR': 0.15866487789831582, 'AUC': 0.8482469883083846}
+INFO:__main__:[2024-01-08 10:46:48]: Save the best model.
+INFO:__main__:[2024-01-08 10:57:08]: Epoch: 10, training loss: 6.12685
+INFO:__main__:[2024-01-08 11:02:13]: Epoch: 10. Dev set: {'NDCG@10': 0.16633017557264454, 'Recall@10': 0.19997868422902698, 'MRR': 0.15989151533574458, 'AUC': 0.8490714821659151}
+INFO:__main__:[2024-01-08 11:02:13]: Save the best model.
+INFO:__main__:[2024-01-08 11:12:49]: Epoch: 11, training loss: 5.90443
+INFO:__main__:[2024-01-08 11:17:54]: Epoch: 11. Dev set: {'NDCG@10': 0.16582439944951374, 'Recall@10': 0.19899797948807815, 'MRR': 0.15951192481609908, 'AUC': 0.846414965778251}
+INFO:__main__:[2024-01-08 11:28:36]: Epoch: 12, training loss: 5.72463
+INFO:__main__:[2024-01-08 11:33:41]: Epoch: 12. Dev set: {'NDCG@10': 0.16593739487792156, 'Recall@10': 0.19915113063507994, 'MRR': 0.1596506243930721, 'AUC': 0.8484014811048292}
+INFO:__main__:[2024-01-08 11:44:02]: Epoch: 13, training loss: 5.52692
+INFO:__main__:[2024-01-08 11:49:07]: Epoch: 13. Dev set: {'NDCG@10': 0.1654803496588745, 'Recall@10': 0.19899350137909003, 'MRR': 0.15906333783990118, 'AUC': 0.8460808445195682}
+INFO:__main__:[2024-01-08 11:59:25]: Epoch: 14, training loss: 5.36719
+INFO:__main__:[2024-01-08 12:04:30]: Epoch: 14. Dev set: {'NDCG@10': 0.16573696590761547, 'Recall@10': 0.1998300111816179, 'MRR': 0.1590694929830569, 'AUC': 0.8459391140509374}
+INFO:__main__:[2024-01-08 12:15:09]: Epoch: 15, training loss: 5.20918
+INFO:__main__:[2024-01-08 12:20:16]: Epoch: 15. Dev set: {'NDCG@10': 0.1659929213724199, 'Recall@10': 0.19989449588152078, 'MRR': 0.15938770506886413, 'AUC': 0.844567879996865}
+INFO:__main__:[2024-01-08 12:20:16]: Load best model: ./log/Office/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia/pytorch_model.bin
+INFO:__main__:[2024-01-08 12:25:43]: ==Test set==: {'NDCG@10': 0.12581225767617746, 'Recall@10': 0.15143514272826167, 'MRR': 0.121274672442818, 'AUC': 0.8108279819859833}
+
+INFO:__main__:[2024-01-08 12:25:43]: Finish.

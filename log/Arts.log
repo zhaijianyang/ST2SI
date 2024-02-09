@@ -1,0 +1,179 @@
+INFO:__main__:base_lr:                         5e-05
+INFO:__main__:base_weight_decay:               0.0
+INFO:__main__:batch_size:                      16
+INFO:__main__:bias:                            none
+INFO:__main__:bits:                            16
+INFO:__main__:checkpoint_dir:                  None
+INFO:__main__:data_root:                       /userhome/dataset/Recformer/finetune_data
+INFO:__main__:dataset:                         Arts
+INFO:__main__:deepspeed:                       None
+INFO:__main__:fix_backbone:                    False
+INFO:__main__:gradient_accumulation_steps:     4
+INFO:__main__:gradient_checkpointing_enable:   True
+INFO:__main__:index_alignment:                 True
+INFO:__main__:interval:                        1
+INFO:__main__:linear_lr:                       5e-05
+INFO:__main__:linear_weight_decay:             0
+INFO:__main__:log_file:                        ./log/Arts/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia/train.log
+INFO:__main__:lora_alpha:                      16
+INFO:__main__:lora_dropout:                    0.05
+INFO:__main__:lora_r:                          64
+INFO:__main__:max_attr_length:                 32
+INFO:__main__:max_item_num:                    50
+INFO:__main__:max_token_num:                   1024
+INFO:__main__:metric_ks:                       [10]
+INFO:__main__:mixed_precision:                 fp16
+INFO:__main__:model_cache_dir:                 /userhome/cache_models
+INFO:__main__:model_name_or_path:              facebook/opt-125m
+INFO:__main__:not_debug:                       True
+INFO:__main__:num_train_epochs:                30
+INFO:__main__:num_workers:                     1
+INFO:__main__:only_test:                       False
+INFO:__main__:output_dir:                      ./log
+INFO:__main__:output_path:                     ./log/Arts/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia
+INFO:__main__:pad_right:                       False
+INFO:__main__:patient:                         5
+INFO:__main__:pretrain_datasets:               ['Automotive', 'Cell_Phones_and_Accessories', 'Clothing_Shoes_and_Jewelry', 'Electronics', 'Grocery_and_Gourmet_Food', 'Home_and_Kitchen', 'Movies_and_TV']
+INFO:__main__:query_same:                      False
+INFO:__main__:query_token_mode:                1
+INFO:__main__:query_token_num:                 0
+INFO:__main__:seed:                            42
+INFO:__main__:skip_valid:                      0
+INFO:__main__:suffix:                          gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia
+INFO:__main__:target_modules:                  None
+INFO:__main__:train_attr:                      ['title']
+INFO:__main__:use_lora:                        False
+INFO:__main__:valid_metric:                    NDCG@10
+INFO:__main__:warmup_steps:                    100
+INFO:__main__:bos_token: </s>; 2
+INFO:__main__:eos_token: </s>; 2
+INFO:__main__:unk_token: </s>; 2
+INFO:__main__:pad_token: <pad>; 1
+INFO:__main__:[2024-01-07 23:00:28]: trainable params: 142786560 || all params: 142786560 || trainable: 100.0
+INFO:__main__:OPTRecModel(
+  (decoder): OPTDecoder(
+    (embed_tokens): Embedding(50265, 768)
+    (embed_positions): OPTLearnedPositionalEmbedding(2050, 768)
+    (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0-11): 12 x OPTDecoderLayer(
+        (self_attn): OPTAttention(
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_fn): ReLU()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (score): Linear(in_features=768, out_features=22855, bias=False)
+)
+INFO:__main__:[2024-01-07 23:00:28]: trainable params: 142786560 || all params: 142786560 || trainable: 100.0
+INFO:__main__:[Mode: train], user num: 56121
+INFO:__main__:[Mode: valid], user num: 56198
+INFO:__main__:[Mode: test], user num: 56198
+INFO:__main__:[Train Data]
+INFO:__main__:[Sequence]: 
+ Crop-A-Dile Eyelet and Snap Punch Kit by We R Memory Keepers | Includes heavy-duty-plastic carrying case with teal.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 3749]
+INFO:__main__:[Valid Data]
+INFO:__main__:[Sequence]: 
+Moleskine Passion Journal - Film, Large, Hard Cover (5 x 8.25). Crop-A-Dile Eyelet and Snap Punch Kit by We R Memory Keepers | Includes heavy-duty-plastic carrying case with teal. Crop-A-Dile Eyelet and Snap Punch Kit by We R Memory Keepers | Includes heavy-duty-plastic carrying case with teal.Crop-A-Dile Eyelet and Snap Punch by We R Memory Keepers | Blue Comfort Handle.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2463, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2463, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 3749, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9423]
+INFO:__main__:[Test Data]
+INFO:__main__:[Sequence]: 
+Moleskine Passion Journal - Film, Large, Hard Cover (5 x 8.25). Crop-A-Dile Eyelet and Snap Punch Kit by We R Memory Keepers | Includes heavy-duty-plastic carrying case with teal. Crop-A-Dile Eyelet and Snap Punch Kit by We R Memory Keepers | Includes heavy-duty-plastic carrying case with teal.Crop-A-Dile Eyelet and Snap Punch by We R Memory Keepers | Blue Comfort Handle.Mod Podge Hot Glue Gun Finger Caps, Original Version.
+INFO:__main__:[Target]: 
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2463, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2463, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 3749, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9423, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 7099]
+INFO:__main__:[2024-01-07 23:06:48]: Epoch: 1, training loss: 9.15518
+INFO:__main__:[2024-01-07 23:09:53]: Epoch: 1. Dev set: {'NDCG@10': 0.10648104890822668, 'Recall@10': 0.13248790552077405, 'MRR': 0.10162781963093266, 'AUC': 0.7549963404864972}
+INFO:__main__:[2024-01-07 23:09:53]: Save the best model.
+INFO:__main__:[2024-01-07 23:16:05]: Epoch: 2, training loss: 8.23661
+INFO:__main__:[2024-01-07 23:19:10]: Epoch: 2. Dev set: {'NDCG@10': 0.1290076077991527, 'Recall@10': 0.159878343767786, 'MRR': 0.12353603289219194, 'AUC': 0.8184963247622694}
+INFO:__main__:[2024-01-07 23:19:10]: Save the best model.
+INFO:__main__:[2024-01-07 23:25:20]: Epoch: 3, training loss: 7.67659
+INFO:__main__:[2024-01-07 23:28:24]: Epoch: 3. Dev set: {'NDCG@10': 0.14383875125066065, 'Recall@10': 0.1771129766647695, 'MRR': 0.13820625999543548, 'AUC': 0.8460499541489455}
+INFO:__main__:[2024-01-07 23:28:24]: Save the best model.
+INFO:__main__:[2024-01-07 23:34:38]: Epoch: 4, training loss: 7.25505
+INFO:__main__:[2024-01-07 23:37:43]: Epoch: 4. Dev set: {'NDCG@10': 0.15531864706278442, 'Recall@10': 0.19303144564598748, 'MRR': 0.14857206536074236, 'AUC': 0.8600030542776947}
+INFO:__main__:[2024-01-07 23:37:43]: Save the best model.
+INFO:__main__:[2024-01-07 23:44:00]: Epoch: 5, training loss: 6.89259
+INFO:__main__:[2024-01-07 23:47:05]: Epoch: 5. Dev set: {'NDCG@10': 0.1605568574073602, 'Recall@10': 0.19851546196450412, 'MRR': 0.15399574805207458, 'AUC': 0.8662908037548792}
+INFO:__main__:[2024-01-07 23:47:05]: Save the best model.
+INFO:__main__:[2024-01-07 23:53:20]: Epoch: 6, training loss: 6.57963
+INFO:__main__:[2024-01-07 23:56:24]: Epoch: 6. Dev set: {'NDCG@10': 0.16807222403543506, 'Recall@10': 0.207123885413565, 'MRR': 0.16141515298917206, 'AUC': 0.8726092786292292}
+INFO:__main__:[2024-01-07 23:56:24]: Save the best model.
+INFO:__main__:[2024-01-08 00:02:38]: Epoch: 7, training loss: 6.30472
+INFO:__main__:[2024-01-08 00:05:42]: Epoch: 7. Dev set: {'NDCG@10': 0.17031464792944928, 'Recall@10': 0.21094787516882965, 'MRR': 0.1632575188864417, 'AUC': 0.8754325654944983}
+INFO:__main__:[2024-01-08 00:05:42]: Save the best model.
+INFO:__main__:[2024-01-08 00:11:59]: Epoch: 8, training loss: 6.05727
+INFO:__main__:[2024-01-08 00:15:04]: Epoch: 8. Dev set: {'NDCG@10': 0.17349310305317273, 'Recall@10': 0.21434500095141362, 'MRR': 0.16640346682488422, 'AUC': 0.8776573614091716}
+INFO:__main__:[2024-01-08 00:15:04]: Save the best model.
+INFO:__main__:[2024-01-08 00:21:17]: Epoch: 9, training loss: 5.81533
+INFO:__main__:[2024-01-08 00:24:22]: Epoch: 9. Dev set: {'NDCG@10': 0.17623132311484066, 'Recall@10': 0.219414010626997, 'MRR': 0.1683880770832086, 'AUC': 0.8778634954055196}
+INFO:__main__:[2024-01-08 00:24:22]: Save the best model.
+INFO:__main__:[2024-01-08 00:30:35]: Epoch: 10, training loss: 5.59930
+INFO:__main__:[2024-01-08 00:33:39]: Epoch: 10. Dev set: {'NDCG@10': 0.1767725732069363, 'Recall@10': 0.21909386264748645, 'MRR': 0.1693261001428974, 'AUC': 0.8790755359775042}
+INFO:__main__:[2024-01-08 00:33:39]: Save the best model.
+INFO:__main__:[2024-01-08 00:39:51]: Epoch: 11, training loss: 5.38966
+INFO:__main__:[2024-01-08 00:42:55]: Epoch: 11. Dev set: {'NDCG@10': 0.17836964605975097, 'Recall@10': 0.22108589451999644, 'MRR': 0.17076523715628053, 'AUC': 0.8790365163412838}
+INFO:__main__:[2024-01-08 00:42:55]: Save the best model.
+INFO:__main__:[2024-01-08 00:49:06]: Epoch: 12, training loss: 5.17975
+INFO:__main__:[2024-01-08 00:52:11]: Epoch: 12. Dev set: {'NDCG@10': 0.17896601557519604, 'Recall@10': 0.22243763043348533, 'MRR': 0.17114928441453994, 'AUC': 0.8788134368156667}
+INFO:__main__:[2024-01-08 00:52:11]: Save the best model.
+INFO:__main__:[2024-01-08 00:58:23]: Epoch: 13, training loss: 4.99981
+INFO:__main__:[2024-01-08 01:01:28]: Epoch: 13. Dev set: {'NDCG@10': 0.1794895289267541, 'Recall@10': 0.22281113640958095, 'MRR': 0.1717117647878936, 'AUC': 0.8784739754725127}
+INFO:__main__:[2024-01-08 01:01:28]: Save the best model.
+INFO:__main__:[2024-01-08 01:07:49]: Epoch: 14, training loss: 4.85987
+INFO:__main__:[2024-01-08 01:10:54]: Epoch: 14. Dev set: {'NDCG@10': 0.17957761946177203, 'Recall@10': 0.22238427243690023, 'MRR': 0.17197510621305842, 'AUC': 0.8791862247542488}
+INFO:__main__:[2024-01-08 01:10:54]: Save the best model.
+INFO:__main__:[2024-01-08 01:17:04]: Epoch: 15, training loss: 4.71227
+INFO:__main__:[2024-01-08 01:20:09]: Epoch: 15. Dev set: {'NDCG@10': 0.17933103688512853, 'Recall@10': 0.2229178524027511, 'MRR': 0.17144635715270093, 'AUC': 0.8791427450486727}
+INFO:__main__:[2024-01-08 01:26:21]: Epoch: 16, training loss: 4.57790
+INFO:__main__:[2024-01-08 01:29:26]: Epoch: 16. Dev set: {'NDCG@10': 0.1796654671845098, 'Recall@10': 0.2235225763640488, 'MRR': 0.17163734166582387, 'AUC': 0.8785719311434095}
+INFO:__main__:[2024-01-08 01:29:26]: Save the best model.
+INFO:__main__:[2024-01-08 01:35:38]: Epoch: 17, training loss: 4.46494
+INFO:__main__:[2024-01-08 01:38:43]: Epoch: 17. Dev set: {'NDCG@10': 0.18023363108321067, 'Recall@10': 0.22412730032534645, 'MRR': 0.17228155431412392, 'AUC': 0.8789011409965237}
+INFO:__main__:[2024-01-08 01:38:43]: Save the best model.
+INFO:__main__:[2024-01-08 01:44:46]: Epoch: 18, training loss: 4.36783
+INFO:__main__:[2024-01-08 01:47:51]: Epoch: 18. Dev set: {'NDCG@10': 0.1799627292390296, 'Recall@10': 0.22373600835038915, 'MRR': 0.17194441728867424, 'AUC': 0.8772640398231228}
+INFO:__main__:[2024-01-08 01:53:58]: Epoch: 19, training loss: 4.27368
+INFO:__main__:[2024-01-08 01:57:03]: Epoch: 19. Dev set: {'NDCG@10': 0.17969381957811578, 'Recall@10': 0.2235225763640488, 'MRR': 0.17166954891726494, 'AUC': 0.8783192503635491}
+INFO:__main__:[2024-01-08 02:03:15]: Epoch: 20, training loss: 4.17964
+INFO:__main__:[2024-01-08 02:06:20]: Epoch: 20. Dev set: {'NDCG@10': 0.17982893878372475, 'Recall@10': 0.22325578638112334, 'MRR': 0.17193365061279825, 'AUC': 0.8769525617581575}
+INFO:__main__:[2024-01-08 02:12:28]: Epoch: 21, training loss: 4.13805
+INFO:__main__:[2024-01-08 02:15:33]: Epoch: 21. Dev set: {'NDCG@10': 0.18023423844970674, 'Recall@10': 0.22339807437201692, 'MRR': 0.1723823671330691, 'AUC': 0.8760027023764856}
+INFO:__main__:[2024-01-08 02:15:33]: Save the best model.
+INFO:__main__:[2024-01-08 02:21:42]: Epoch: 22, training loss: 4.07856
+INFO:__main__:[2024-01-08 02:24:48]: Epoch: 22. Dev set: {'NDCG@10': 0.1802811052069263, 'Recall@10': 0.22362929235721896, 'MRR': 0.1723508002513709, 'AUC': 0.8758163240801291}
+INFO:__main__:[2024-01-08 02:24:48]: Save the best model.
+INFO:__main__:[2024-01-08 02:31:01]: Epoch: 23, training loss: 4.01857
+INFO:__main__:[2024-01-08 02:34:06]: Epoch: 23. Dev set: {'NDCG@10': 0.18037576210517045, 'Recall@10': 0.22288228040502772, 'MRR': 0.17275349051899908, 'AUC': 0.8758872835623926}
+INFO:__main__:[2024-01-08 02:34:06]: Save the best model.
+INFO:__main__:[2024-01-08 02:40:22]: Epoch: 24, training loss: 3.98759
+INFO:__main__:[2024-01-08 02:43:27]: Epoch: 24. Dev set: {'NDCG@10': 0.18056025778356352, 'Recall@10': 0.22288228040502772, 'MRR': 0.17298243454854678, 'AUC': 0.875604740957272}
+INFO:__main__:[2024-01-08 02:43:27]: Save the best model.
+INFO:__main__:[2024-01-08 02:49:34]: Epoch: 25, training loss: 3.96271
+INFO:__main__:[2024-01-08 02:52:39]: Epoch: 25. Dev set: {'NDCG@10': 0.18046767994926846, 'Recall@10': 0.22290006640388943, 'MRR': 0.17284933558024368, 'AUC': 0.8755585663889915}
+INFO:__main__:[2024-01-08 02:58:52]: Epoch: 26, training loss: 3.93605
+INFO:__main__:[2024-01-08 03:01:57]: Epoch: 26. Dev set: {'NDCG@10': 0.18020801806072909, 'Recall@10': 0.2230779263925064, 'MRR': 0.17239248583450548, 'AUC': 0.8750413984280794}
+INFO:__main__:[2024-01-08 03:08:01]: Epoch: 27, training loss: 3.91923
+INFO:__main__:[2024-01-08 03:11:06]: Epoch: 27. Dev set: {'NDCG@10': 0.1804790927391917, 'Recall@10': 0.22329135837884673, 'MRR': 0.17269094219083028, 'AUC': 0.8745954794237814}
+INFO:__main__:[2024-01-08 03:17:14]: Epoch: 28, training loss: 3.94490
+INFO:__main__:[2024-01-08 03:20:19]: Epoch: 28. Dev set: {'NDCG@10': 0.18044935976402643, 'Recall@10': 0.22304235439478298, 'MRR': 0.1727406203236079, 'AUC': 0.8748228261263179}
+INFO:__main__:[2024-01-08 03:26:37]: Epoch: 29, training loss: 3.89667
+INFO:__main__:[2024-01-08 03:29:42]: Epoch: 29. Dev set: {'NDCG@10': 0.1805641229164256, 'Recall@10': 0.22313128438909147, 'MRR': 0.17286233476235377, 'AUC': 0.8749856030187895}
+INFO:__main__:[2024-01-08 03:29:42]: Save the best model.
+INFO:__main__:[2024-01-08 03:35:54]: Epoch: 30, training loss: 3.88176
+INFO:__main__:[2024-01-08 03:38:59]: Epoch: 30. Dev set: {'NDCG@10': 0.18056405880305584, 'Recall@10': 0.2231134983902298, 'MRR': 0.17286962225416216, 'AUC': 0.8749529174870907}
+INFO:__main__:[2024-01-08 03:38:59]: Load best model: ./log/Arts/facebook-opt-125m_gpu2_bs16_blr5e-05_bwd0_llr5e-05_lwd0_e30_gas4_i50_attr1_qm1_qn0_ia/pytorch_model.bin
+INFO:__main__:[2024-01-08 03:42:13]: ==Test set==: {'NDCG@10': 0.13847951359217844, 'Recall@10': 0.17094123505976094, 'MRR': 0.13338023259026976, 'AUC': 0.8431232748685673}
+
+INFO:__main__:[2024-01-08 03:42:13]: Finish.
