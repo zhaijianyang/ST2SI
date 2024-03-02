@@ -1,6 +1,8 @@
 # KDD24-submit
 
-## Data can be obtained from Reformer: https://github.com/justsmart/RecFormer.git.
+## Data 
+
+Data can be obtained from Reformer: https://github.com/justsmart/RecFormer.git.
 
 ## train
 
