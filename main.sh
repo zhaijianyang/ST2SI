@@ -20,6 +20,4 @@ CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 main.py \
     --query_token_mode 1 \
     --query_token_num 1 \
     --suffix debug \
-    --index_alignment \
-    --checkpoint_dir /userhome/projects/new_recformer/src_v2/log/Scientific/facebook-opt-125m_debug \
-    --use_lora
+    --index_alignment
